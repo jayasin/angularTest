@@ -1,0 +1,27 @@
+<div class="signin-page">
+    <div class="signin-form">
+    <h1>New Registration</h1>
+    <p>Fill your details</p>
+    
+    <form [formGroup]="signUpForm" action="submit" (ngSubmit)="onSubmit()">
+       
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" name="email" type="email" formControlName="email" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" name="password" type="password" formControlName="password" required>
+          </mat-form-field>
+          <button type="submit" mat-raised-button color="primary" class="register-button">Register</button>
+    </form>
+    
+    <p class="login">Already have an account ? <a routerLink="/login">Login</a></p>
+    
+    
+    
+    
+    </div>
+    
+    
+    </div>

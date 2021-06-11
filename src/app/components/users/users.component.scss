@@ -1,0 +1,76 @@
+.users-page {
+  .toolbar{ 
+    height: 42px;
+    width: 100%;
+    position: relative;
+     .title {
+       font-family: "Rubik";
+       text-align: center;
+       width: 100%;
+       font-size: 200;
+       
+     }
+     .logout-wrapper {
+       position: absolute;
+       right: 10px;
+      .btn-logout {
+        margin: 0px;
+        zoom: 0.9;
+      }
+    }
+  }
+  
+  .users-heading {
+    font-family: 'Rubik';
+    margin: 10px 5px;
+  }
+
+  .delay-wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    .btn-delay {
+      margin: 10px;
+      height: 35px;
+    }
+  }
+}
+
+table {
+  width: 100%;
+}
+
+.avatar {
+  width: 45px;
+  border-radius: 50px;
+  margin: 10px;
+}
+
+.search-wrapper {
+  width: 50%;
+  mat-form-field {
+    zoom: 0.8;
+    margin: 5px 5px;
+    width: 300px;
+  }
+}
+mat-icon {
+  cursor: pointer;
+  padding: 0 5px;
+}
+.mat-paginator {
+  background: #ffffff73 !important;
+}
+.search-and-delay {
+  display: flex;
+  margin: 11px 0;
+}
+
+.user-page-wrapper {
+  padding: 10px 30px;
+}
+
+.avatar-field {
+  display: flex;
+    align-items: center;
+}

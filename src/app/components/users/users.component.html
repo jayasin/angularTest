@@ -1,0 +1,82 @@
+<div class="users-page">
+  <mat-toolbar color="primary" class="toolbar">
+  <h1 class="title">Front End Development Task</h1>
+  <div class="logout-wrapper">
+    <button mat-raised-button color="warn" class="btn-logout" (click)="logoutHandler()">Logout</button>
+  </div>
+  </mat-toolbar>
+  <!-- <div class="logout-wrapper">
+    <button mat-raised-button color="warn" class="btn-logout" (click)="logoutHandler()">Logout</button>
+  </div> -->
+  <div class="user-page-wrapper">
+  <h1 class="users-heading">List of users</h1>
+
+  <div class="search-and-delay">
+    <div class="search-wrapper">
+      <!-- <input matInput  type="text" placeholder="Search user" (input)="filterData($event.target.value)"> -->
+      <mat-form-field appearance="outline" (input)="filterData($event.target.value)">
+        <mat-label>Search Users</mat-label>
+        <input matInput placeholder="Search users">
+      </mat-form-field>
+    </div>
+    <div class="delay-wrapper">
+      <button mat-raised-button color="primary" class="btn-delay" (click)="delayHandler()">Test Delayed Response</button>
+    </div>
+  </div>
+
+  
+ 
+  
+ 
+  <div class="table-wrapper">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+      </ng-container>
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="first_name">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.first_name }}</td>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="last_name">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.last_name }}</td>
+      </ng-container>
+
+       <!-- Avatar Column -->
+       <ng-container matColumnDef="avatar">
+        <th mat-header-cell *matHeaderCellDef>Avatar</th>
+        <td mat-cell *matCellDef="let element" class="avatar-field">
+            <img class="avatar" src={{element.avatar}} alt="">
+        </td>
+      </ng-container>
+
+       <!-- Action Column -->
+       <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon color="primary" aria-hidden="false" (click)="editHandler(element.first_name, element.id)" >edit</mat-icon>
+          <mat-icon color="warn" aria-hidden="false" (click)="deleteHandler(element.id)">delete</mat-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator [length]="totalResults" [pageSize]="pageSize" (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+</div>
+
+</div>

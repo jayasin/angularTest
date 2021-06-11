@@ -1,0 +1,17 @@
+<form [formGroup]="editForm" action="submit" #form (ngSubmit)="onSubmit()">
+   
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" name="name" type="text" formControlName="name" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Job</mat-label>
+        <input matInput placeholder="Job" name="job" type="text" formControlName="job" required>
+      </mat-form-field>
+      <br>      
+      <div class="buttons-wrapper">
+        <button type="button" mat-raised-button color="warn" (click)="cancelEditForm()">Cancel</button>
+        <button type="submit" mat-raised-button color="primary" class="login-button">Update</button>
+      </div>
+</form>

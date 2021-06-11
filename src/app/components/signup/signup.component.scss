@@ -1,0 +1,51 @@
+.signin-page {
+    height: 100%;
+    background-image: url(../../../assets/images/login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.signin-form {
+    width: 400px;
+    height: 280px;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px 4px #3d3b3bab;
+    padding: 15px;
+    h1 {
+        text-align: center;
+        margin: 10px 0;
+        font-family: 'Rubik';
+    }
+    p{
+        text-align: center;
+        font-family: 'Rubik';
+        font-weight: 100;
+    }
+
+    mat-form-field {
+        width: 100%;
+        zoom: 0.8;
+    }
+
+    .register-button {
+        width: 100%;
+    }
+
+    .login {
+        text-align: center;
+        font-family: 'Rubik';
+        font-weight: 100;
+        margin: 10px 0;
+        a {
+            text-decoration: none;
+            font-weight: 500;
+            color: blue;
+        }
+    }
+}
+
