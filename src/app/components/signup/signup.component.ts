@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   signUpForm: FormGroup;
   private subscription$ = true;
   private readonly subscriptions: Subscription[] = [];
+  submitted = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,8 +27,13 @@ export class SignupComponent implements OnInit, OnDestroy {
   ) {
     this.signUpForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.pattern(constants.EMAIL_PATTERN)]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required, Validators.minLength(5)]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(5)]]
     });
+  }
+  
+  get f() {
+    return this.signUpForm.controls;
   }
 
   ngOnInit(): void {}
@@ -43,7 +49,11 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
+    this.submitted = true;
     if (this.signUpForm.invalid) {
+      return this.signUpForm.controls;
+    } else if (this.signUpForm.value.password != this.signUpForm.value.confirmPassword) {
+      this.toaster.notifyError("Passwords are not matching");
       return this.signUpForm.controls;
     }
 
@@ -65,6 +75,6 @@ export class SignupComponent implements OnInit, OnDestroy {
         }
       );
 
-      this.subscriptions.push(registrationSubscription);
+    this.subscriptions.push(registrationSubscription);
   }
 }

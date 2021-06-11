@@ -8,10 +8,17 @@
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
             <input matInput placeholder="Email" name="email" type="email" formControlName="email" required>
+            <mat-hint *ngIf="(!submitted) && (f.email.invalid && (f.email.touched) && f.email.errors?.required)" >* Email is required</mat-hint>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
             <input matInput placeholder="Password" name="password" type="password" formControlName="password" required>
+            <mat-hint  *ngIf="(!submitted) && (f.password.invalid && (f.password.touched) && f.password.errors?.required)">* Password is required</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput placeholder="Confirm Password" name="confirmPassword" type="password" formControlName="confirmPassword" required>
+            <mat-hint *ngIf="(!submitted) && (f.confirmPassword.invalid && (f.confirmPassword.touched) && f.confirmPassword.errors?.required)">* Confirm Password is required</mat-hint>
           </mat-form-field>
           <button type="submit" mat-raised-button color="primary" class="register-button">Register</button>
     </form>

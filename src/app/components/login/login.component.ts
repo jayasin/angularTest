@@ -37,13 +37,17 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
+  get f() {
+    return this.loginForm.controls;
+  }
+
   ngOnInit(): void {
     if (this.authGuard.isUserLoggedIn()) {
       this.router.navigateByUrl('/users');
     }
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.pattern(constants.EMAIL_PATTERN)]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required, Validators.minLength(5)]]
     });
   }
 
